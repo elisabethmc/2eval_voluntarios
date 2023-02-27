@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+void ordenanumeros(){
+        int numeros[10];
+        int cont;
+        int i;
+        int aux;
+        int veces;
+        printf("\nIntroduzca 10 numeros enteros: ");
+        for(cont=0;cont<10;cont++){
+            printf("\nNumero %d: ",cont);
+            scanf("%d",&numeros[cont]);
+        }
+
+        for(veces=1;veces<10;veces++){
+            for(i=0;i<9;i++){
+                if(numeros[i]<numeros[i+1]){
+                  //Intercambiamos
+                    aux=numeros[i];
+                    numeros[i]=numeros[i+1];
+                    numeros[i+1]=aux;
+                }
+            }
+        }
+        printf("\nORDENADA: ");
+        for(cont=0;cont<10;cont++){
+            printf("\nNumero %d: %d",cont,numeros[cont]);
+        }
+    }
+
+int main()
+{
+    ordenanumeros();
+    return 0;
+}
