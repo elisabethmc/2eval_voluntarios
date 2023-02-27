@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+ int matriz[3][3];
+ bool numeros_usados[10] = {false}; // para asegurarnos de que los números sean distintos
+ srand(time(NULL)); // inicializamos la semilla para la generación de números aleatorios
+
+ // generamos los números aleatorios y los asignamos a la matriz
+ for (int i = 0; i < 3; i++) {
+ for (int j = 0; j < 3; j++) {
+ int num_aleatorio;
+ do {
+ num_aleatorio = rand() % 10; // generamos un número aleatorio entre 0 y 9
+ } while (numeros_usados[num_aleatorio]); // si ya se usó ese número, lo generamos de nuevo
+ numeros_usados[num_aleatorio] = true; // marcamos el número como usado
+ matriz[i][j] = num_aleatorio;
+ }
+ }
+
+ // mostramos la matriz
+ for (int i = 0; i < 3; i++) {
+ for (int j = 0; j < 3; j++) {
+ cout << matriz[i][j] << " ";
+ }
+ cout << endl;
+ }
+
+ return 0;
+}
